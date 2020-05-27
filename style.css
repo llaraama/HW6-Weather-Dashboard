@@ -1,0 +1,30 @@
+#cityList{
+    font-size: 20px;
+}
+
+#weather{
+    background-color:white;
+    color: black;
+
+}
+
+.float-container {
+    border: 10px solid #fff;
+    padding: 20px;
+}
+
+.float-child1,.float-child2,.float-child3,.float-child4,.float-child5 {
+    width: 20%;
+    float: left;
+    padding: 20px;
+    border: 2px solid blue;
+}  
+#select-city{
+    color:white;
+    background-color: blue;
+}
+
+button{
+    width:300px;
+    text-align: left;
+}
