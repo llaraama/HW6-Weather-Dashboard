@@ -1,4 +1,5 @@
-
+var date=moment().format('L');
+ 
 $(document).ready(function(){
 
     $("button").on('click', function(){
@@ -31,8 +32,12 @@ function searchCity(city){
         // console.log(response);
         console.log(response);
 
+        $('h4').text("5-Day Forecast");
 
-        $(".city").html("<h3>"+response.city.name);
+
+        $(".city").html("<h3>"+response.city.name+"  "+date+"  ");
+
+        var IconMain=response.list[0].weather[0].main;
 
         $(".date").text(
         response.list[0].dt_txt);
@@ -73,6 +78,16 @@ function searchCity(city){
         $(".5").html("<div class='float-child5'>"+ response.list[34].dt_txt+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
 
         var iconfive=response.list[34].weather[0].main;
+
+
+        if (IconMain==="Rain"){
+            $("h3").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            
+        }else if (IconMain==="Clear"){
+            $("h3").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+        }else if (IconMain==="Clouds"){
+            $("h3").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+        }
 
 
         if (iconone==="Rain"){
@@ -191,18 +206,15 @@ $("#select-city").on("click",function(event){
 });
 
 
-$("button").on('click', function(){
-    console.log("Clicked");
-})
 
-$(".city-btn").on("click",function(event){ 
+
+$("#cityList").on("click",'button',function(event){ 
     console.log(event.target)
-    var newButton=$("data-name").val().trim();
-    var cityName=$(this).attr("data-name");
-    console.log(cityName);
-    searchCity(cityName);
+    console.log("clicky working")
+    let searchCityName=$(this).text();
+    console.log(searchCity);
+    searchCity(searchCityName);
 
-    console.log(newButton);
     // searchCity(newButton);
 
 
