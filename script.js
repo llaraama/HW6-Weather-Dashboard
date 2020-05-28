@@ -81,22 +81,22 @@ function searchCity(city){
 
 
         if (IconMain==="Rain"){
-            $("h3").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            $("h3").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
             
         }else if (IconMain==="Clear"){
-            $("h3").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+            $("h3").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
         }else if (IconMain==="Clouds"){
-            $("h3").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+            $("h3").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
         }
 
 
         if (iconone==="Rain"){
-            $(".float-child1").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            $(".float-child1").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
             
         }else if (iconone==="Clear"){
-            $(".float-child1").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+            $(".float-child1").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
         }else if (iconone==="Clouds"){
-            $(".float-child1").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+            $(".float-child1").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
         }
 
 
@@ -104,48 +104,48 @@ function searchCity(city){
 
         
         if (icontwo==="Rain"){
-            $(".float-child2").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            $(".float-child2").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
             
         }else if (icontwo==="Clear"){
-            $(".float-child2").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+            $(".float-child2").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
         }else if (icontwo==="Clouds"){
-            $(".float-child2").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+            $(".float-child2").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
         }
 
 
 
 
         if (iconthree==="Rain"){
-            $(".float-child3").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            $(".float-child3").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
             
         }else if (iconthree==="Clear"){
-            $(".float-child3").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+            $(".float-child3").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
         }else if (iconthree==="Clouds"){
-            $(".float-child3").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+            $(".float-child3").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
         }
 
 
 
 
         if (iconfour==="Rain"){
-            $(".float-child4").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            $(".float-child4").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
             
         }else if (iconfour==="Clear"){
-            $(".float-child4").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+            $(".float-child4").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
         }else if (iconfour==="Clouds"){
-            $(".float-child4").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+            $(".float-child4").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
         }
 
 
 
 
         if (iconfive==="Rain"){
-            $(".float-child5").append($("<img>",{id:"rain",src:"rain.jpg", width:"50",height:"50"}))
+            $(".float-child5").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
             
         }else if (iconfive==="Clear"){
-            $(".float-child5").append($("<img>",{id:"rain",src:"sunny.png", width:"50",height:"50"}))
+            $(".float-child5").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
         }else if (iconfive==="Clouds"){
-            $(".float-child5").append($("<img>",{id:"rain",src:"cloud.jpg", width:"50",height:"50"}))
+            $(".float-child5").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
         }
  
 
