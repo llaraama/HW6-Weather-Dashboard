@@ -1,3 +1,16 @@
+body{
+    background-color:rgb(23, 105, 160);
+}
+
+header{
+    background-color: rgb(66, 66, 71);
+    color:white;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 #cityList{
     font-size: 20px;
 }
@@ -9,26 +22,34 @@
 }
 
 .float-container {
-    border: 10px solid #fff;
+    border: 20px solid #fff;
     padding: 20px;
+    float: center;
+   
 }
 
 .float-child1,.float-child2,.float-child3,.float-child4,.float-child5 {
     width: 20%;
     float: left;
-    padding: 20px;
-    border: 2px solid blue;
+    padding: 10px;
+    border: 5px solid rgb(23, 105, 160);
+    height:250px;
 }  
 #select-city{
     color:white;
-    background-color: blue;
+    background-color:rgb(23, 105, 160);
 }
 
 button{
-    width:300px;
+    width:250px;
     text-align: left;
 }
 
 span{
     text-align: center;
+}
+
+#uv{
+    width:50px;
+    color:white;
 }

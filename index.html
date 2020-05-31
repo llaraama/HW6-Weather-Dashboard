@@ -8,11 +8,7 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <!-- As a heading -->
-    <nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1 ">Weather Dashboard</span>
-    </nav>
-
+    <header>Weather Dashboard</header>
     <div class="contianer">
         <row class="row">
 
@@ -23,61 +19,33 @@
                     <label for="city-input">Search for a City: </label><br>
                     <input type="text" id="city-input">
                     <input id="select-city" type="submit" value="search">
-                </form>
-                <continer id="cityList">
-                
-                
-                </continer>
-
+                </form><br>
+                <continer id="cityList"></continer>
                 </div>
                 </div>
-                
             </section>
 
             <section class="col-lg-9">
-                <div class="card w-100">
+                <div class="card w-60">
                 <div class="card-body">
-                <div id="cityInfo">
-                <h5 class="city"></h5>
-                <div class="date"></div>
-                <div class="tempreature"></div>
-                <div class="humidity"></div>
-                <div class="wind"></div>
-                <div class="uv"></div>
-                </div><br>
-                <h4></h4>
+                    <div id="cityInfo">
+                    <h5 class="city"></h5>
+                    <div class="date"></div>
+                    <div class="tempreature"></div>
+                    <div class="humidity"></div>
+                    <div class="wind"></div>
+                    <div class="uv"></div>
+                    </div><br>
+                    <h4></h4>
                 <div class="float-container">
-                    <div id="weather">
-                    
-                    
-                
-                    
-                    </div>
-
-            
+                    <div id="weather"></div>
                 </div>
-                
-             
                 </div>
-               
-               
-    
-                
-          
-
-
                 </div>
-            
             </section>
+
         </row>
     </div>
-
-
-
-
-
-
-
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

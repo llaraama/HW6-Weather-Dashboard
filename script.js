@@ -1,228 +1,240 @@
+var welcome=prompt("Welcome, whats your name?");
+var hello=alert("Hello"+" "+welcome+" "+"search a location to view the weather!");
+
 var date=moment().format('L');
+var nextDay=moment().add(1, 'days').calendar(); 
+var twoDays=moment().add(2, 'days').calendar(); 
+var threeDays=moment().add(3, 'days').calendar(); 
+var fourDays=moment().add(4, 'days').calendar(); 
+var fiveDays=moment().add(5, 'days').calendar(); 
  
 $(document).ready(function(){
 
-    $("button").on('click', function(){
-        console.log("Clicked");
-    })
+    var citiesArray=[];
 
-var cities=[];
+    var weatherDays=["1","2","3","4","5"];
 
-var weatherDays=["1","2","3","4","5"];
+    var localStorageArray=JSON.parse(localStorage.getItem("cities"));
 
-
-
-function searchCity(city){
-
-    var APIKey="3341ac9d2dd138ac14d34cba050bc29f";
-    // var cityName=prompt("choose a city");
-
-    // 
-
-    // var cityName="Atlanta";
-
-    var queryURL="http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+APIKey
+    console.log(localStorageArray);
+    
+    if(localStorageArray){
+        citiesArray=localStorageArray;
+    }
 
 
-    $.ajax({
-        url:queryURL,
-        method: "GET"
-    }).then(function(response){
-        // console.log(queryURL);
-        // console.log(response);
-        console.log(response);
+    function searchCity(city){
 
-        $('h4').text("5-Day Forecast");
+        var APIKey="3341ac9d2dd138ac14d34cba050bc29f";
 
+        var queryURL="http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+APIKey
 
-        $(".city").html("<h3>"+response.city.name+"  "+date+"  ");
-
-        var IconMain=response.list[0].weather[0].main;
-
-        $(".date").text(
-        response.list[0].dt_txt);
-
-        var tempF=(response.list[0].main.temp -273.15)*1.80+32;
-
-        $(".tempreature").text("Tempreature: "+tempF.toFixed(2)+"°F");
-
-        $(".humidity").text("Humidity: "+response.list[0].main.humidity+"%");
-
-        $(".wind").text("Wind Speed: "+response.list[0].wind.speed+" MPH")
-
-        $(".uv").text("UV Index: "  )
-
-        // $("weather").html("<img>"+response.list[0].weather[0].icon);
-
-        $(".1").html("<div class='float-child1'>"+ response.list[2].dt_txt+"<br>"+"<h7>"+ response.list[2].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[2].main.humidity+"%" );
-
-        var iconone=response.list[2].weather[0].main;
-        
-       
-
-        $(".2").html("<div class='float-child2'>"+ response.list[10].dt_txt+"<br>"+"<h7>"+ response.list[10].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[10].main.humidity+"%" );
-
-        var icontwo=response.list[10].weather[0].main;
-
-
-
-        $(".3").html("<div class='float-child3'>"+ response.list[18].dt_txt+"<br>"+"<h7>"+ response.list[18].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[18].main.humidity+"%" );
-
-        var iconthree=response.list[18].weather[0].main;
-
-        $(".4").html("<div class='float-child4'>"+ response.list[26].dt_txt+"<br>"+"<h7>"+ response.list[26].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[26].main.humidity+"%" );
-
-        var iconfour=response.list[26].weather[0].main;
-
-
-        $(".5").html("<div class='float-child5'>"+ response.list[34].dt_txt+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
-
-        var iconfive=response.list[34].weather[0].main;
-
-
-        if (IconMain==="Rain"){
-            $("h3").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
-            
-        }else if (IconMain==="Clear"){
-            $("h3").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
-        }else if (IconMain==="Clouds"){
-            $("h3").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
-        }
-
-
-        if (iconone==="Rain"){
-            $(".float-child1").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
-            
-        }else if (iconone==="Clear"){
-            $(".float-child1").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
-        }else if (iconone==="Clouds"){
-            $(".float-child1").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
-        }
-
-
+        var queryURLUv="http://api.openweathermap.org/data/2.5/uvi/forecast?lat=37.75&lon=-122.37&cnt=0&appid="+APIKey;
 
 
         
-        if (icontwo==="Rain"){
-            $(".float-child2").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+
+        $.ajax({
+            url:queryURL,
+            method: "GET"
+        }).then(function(response){
+
+            // today's weather main section
+            $('h4').text("5-Day Forecast");
+
+            $(".city").html("<h3>"+response.city.name+"  "+date+"  ");
+
+            var IconMain=response.list[0].weather[0].main;
+
+            // $(".date").text(
+            // response.list[0].dt_txt);
+
+            var tempF=(response.list[0].main.temp -273.15)*1.80+32;
+
+            $(".tempreature").text("Tempreature: "+tempF.toFixed(2)+"°F");
+
+            $(".humidity").text("Humidity: "+response.list[0].main.humidity+"%");
+
+            $(".wind").text("Wind Speed: "+response.list[0].wind.speed+" MPH")
+
             
-        }else if (icontwo==="Clear"){
-            $(".float-child2").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
-        }else if (icontwo==="Clouds"){
-            $(".float-child2").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
-        }
 
+    
+            // 1 day after weather stats
+            $(".1").html("<div class='float-child1'>"+ nextDay+"<br>"+"<h7>"+ response.list[2].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[2].main.humidity+"%" );
 
-
-
-        if (iconthree==="Rain"){
-            $(".float-child3").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+            var iconone=response.list[2].weather[0].main;
             
-        }else if (iconthree==="Clear"){
-            $(".float-child3").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
-        }else if (iconthree==="Clouds"){
-            $(".float-child3").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
-        }
+        
+            //  2 days after weather stats
+            $(".2").html("<div class='float-child2'>"+ twoDays+"<br>"+"<h7>"+ response.list[10].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[10].main.humidity+"%" );
+
+            var icontwo=response.list[10].weather[0].main;
+
+
+            //  3 days after weather stats
+            $(".3").html("<div class='float-child3'>"+ threeDays+"<br>"+"<h7>"+ response.list[18].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[18].main.humidity+"%" );
+
+            var iconthree=response.list[18].weather[0].main;
+
+            //  4 days after weather stats
+            $(".4").html("<div class='float-child4'>"+ fourDays+"<br>"+"<h7>"+ response.list[26].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[26].main.humidity+"%" );
+
+            var iconfour=response.list[26].weather[0].main;
+
+            //  5 days after weather stats
+            $(".5").html("<div class='float-child5'>"+ fiveDays+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
+
+            var iconfive=response.list[34].weather[0].main;
 
 
 
 
-        if (iconfour==="Rain"){
-            $(".float-child4").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+            // icon conditionals for the weather for todays weather
+            if (IconMain==="Rain"){
+                $("h3").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+                
+            }else if (IconMain==="Clear"){
+                $("h3").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
+            }else if (IconMain==="Clouds"){
+                $("h3").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+            }
+
+            // icon conditionals for the weather for next day
+            if (iconone==="Rain"){
+                $(".float-child1").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+                
+            }else if (iconone==="Clear"){
+                $(".float-child1").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
+            }else if (iconone==="Clouds"){
+                $(".float-child1").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+            }
+
+            // icon conditionals for the weather for weather 2 days after
+            if (icontwo==="Rain"){
+                $(".float-child2").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+                
+            }else if (icontwo==="Clear"){
+                $(".float-child2").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
+            }else if (icontwo==="Clouds"){
+                $(".float-child2").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+            }
+
+            // icon conditionals for the weather for weather 3 days after
+            if (iconthree==="Rain"){
+                $(".float-child3").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+                
+            }else if (iconthree==="Clear"){
+                $(".float-child3").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
+            }else if (iconthree==="Clouds"){
+                $(".float-child3").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+            }
+
+            // icon conditionals for the weather for weather 4 days after
+            if (iconfour==="Rain"){
+                $(".float-child4").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+                
+            }else if (iconfour==="Clear"){
+                $(".float-child4").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
+            }else if (iconfour==="Clouds"){
+                $(".float-child4").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+            }
+
+            // icon conditionals for the weather for weather 5 days after
+            if (iconfive==="Rain"){
+                $(".float-child5").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
+                
+            }else if (iconfive==="Clear"){
+                $(".float-child5").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
+            }else if (iconfive==="Clouds"){
+                $(".float-child5").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+            }
+   
+
+
+        });
+        // uv API 
+        $.ajax({
+            url:queryURLUv,
+            method: "GET"
+        }).then(function(response){
+
+            $(".uv").html("UV Index: "+"<button id='uv'>"+response[0].value );
+
+            console.log(response)
+
+            var uvIdicator=response[0].value;
+
+            if(uvIdicator===1||uvIdicator===2||uvIdicator===3||uvIdicator===4){
+                $("#uv").css("background-color","green");
+            }else if (uvIdicator===5||uvIdicator===6||uvIdicator===7){
+                $("#uv").css("background-color","yellow");
+            }else{
+                $("#uv").css("background-color","red");
+            }
             
-        }else if (iconfour==="Clear"){
-            $(".float-child4").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
-        }else if (iconfour==="Clouds"){
-            $(".float-child4").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+
+        });
+
+    }
+    // creates the divs for the 5-day forecast of the city searched
+    function fiveDay(){
+        $("#weather").empty();
+        for(var i=0;i<weatherDays.length; i++){
+            var b=$("<div>");
+            b.addClass(weatherDays[i]);
+            b.attr("data-names",weatherDays[i]);
+            $("#weather").append(b);
         }
+    }
 
 
 
 
-        if (iconfive==="Rain"){
-            $(".float-child5").append($("<img>",{id:"rain",src:"Assets/rain.jpg", width:"50",height:"50"}))
-            
-        }else if (iconfive==="Clear"){
-            $(".float-child5").append($("<img>",{id:"rain",src:"Assets/sunny.png", width:"50",height:"50"}))
-        }else if (iconfive==="Clouds"){
-            $(".float-child5").append($("<img>",{id:"rain",src:"Assets/cloud.jpg", width:"50",height:"50"}))
+    // creates the button after the city was searched
+    function renderButtons(){
+        $("#cityList").empty();
+        for(var i=0;i<citiesArray.length;i++){
+            var a =$("<button>");
+            a.addClass("city-btn");
+            a.attr("data-name",citiesArray[i]);
+            a.text(citiesArray[i]);
+            $("#cityList").append(a);
+
+            // var buttonCity=document.getElementById("#cityList");
+            localStorage.setItem('cities',JSON.stringify(citiesArray));
+            // citiesListNew=localStorage.getItem('cities');
+            // buttonCity.innerHTML=citiesListNew;
+
+        // class="city"
         }
- 
+    }
 
 
 
 
+    // search city prompts info to pop up on the screen 
+    $("#select-city").on("click",function(event){
+        event.preventDefault();
+        var inputCity= $("#city-input").val().trim();
+        searchCity(inputCity);
+        citiesArray.push(inputCity);
+        renderButtons();
+        fiveDay();
+    });
 
 
+
+    // try to add an event listener to the button created 
+    $("#cityList").on("click",'button',function(event){ 
+        console.log(event.target)
+        console.log("clicky working")
+        let searchCityName=$(this).text();
+        console.log(searchCity);
+        searchCity(searchCityName);
 
     });
-}
-// creates the button after the city was searched
-function fiveDay(){
-    $("#weather").empty();
-    for(var i=0;i<weatherDays.length; i++){
-        var b=$("<div>");
-        b.addClass(weatherDays[i]);
-        b.attr("data-names",weatherDays[i]);
-        $("#weather").append(b);
-    }
-}
 
-
-
-
-
-function renderButtons(){
-    $("#cityList").empty();
-    for(var i=0;i<cities.length;i++){
-        var a =$("<button>");
-        a.addClass("city-btn");
-        a.attr("data-name",cities[i]);
-        a.text(cities[i]);
-        $("#cityList").append(a);
-       
-    }
-}
-
-// try to add an event listener to the button created 
-// $(".city-btn").on("click", function(event){
-//     event.preventDefault();
-//     var inputCityButton=$(".city-btn").val().trim();
-//     searchCity(inputCityButton);
-//     cities.push(inputCityButton);
-//     renderButtons();
-    
-
-// })
-
-// search city prompts info to pop up on the screen 
-$("#select-city").on("click",function(event){
-    event.preventDefault();
-    var inputCity= $("#city-input").val().trim();
-    searchCity(inputCity);
-    cities.push(inputCity);
     renderButtons();
     fiveDay();
 });
-
-
-
-
-$("#cityList").on("click",'button',function(event){ 
-    console.log(event.target)
-    console.log("clicky working")
-    let searchCityName=$(this).text();
-    console.log(searchCity);
-    searchCity(searchCityName);
-
-    // searchCity(newButton);
-
-
-});
-
-// $(document).on("click",".city-btn",searchCity);
-
-
-renderButtons();
-fiveDay();
-})
