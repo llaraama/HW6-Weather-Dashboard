@@ -27,9 +27,9 @@ $(document).ready(function(){
 
         var APIKey="3341ac9d2dd138ac14d34cba050bc29f";
 
-        var queryURL="http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+APIKey
+        var queryURL="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+APIKey
 
-        var queryURLUv="http://api.openweathermap.org/data/2.5/uvi/forecast?lat=37.75&lon=-122.37&cnt=0&appid="+APIKey;
+        var queryURLUv="https://api.openweathermap.org/data/2.5/uvi/forecast?lat=37.75&lon=-122.37&cnt=0&appid="+APIKey;
 
 
         
