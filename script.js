@@ -22,6 +22,8 @@ $(document).ready(function(){
         citiesArray=localStorageArray;
     }
 
+ 
+
 
     function searchCity(city){
 
@@ -46,9 +48,6 @@ $(document).ready(function(){
 
             var IconMain=response.list[0].weather[0].main;
 
-            // $(".date").text(
-            // response.list[0].dt_txt);
-
             var tempF=(response.list[0].main.temp -273.15)*1.80+32;
 
             $(".tempreature").text("Tempreature: "+tempF.toFixed(2)+"°F");
@@ -57,35 +56,51 @@ $(document).ready(function(){
 
             $(".wind").text("Wind Speed: "+response.list[0].wind.speed+" MPH")
 
-            
+           
 
     
             // 1 day after weather stats
-            $(".1").html("<div class='float-child1'>"+ nextDay+"<br>"+"<h7>"+ response.list[2].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[2].main.humidity+"%" );
+            var tempFone=(response.list[2].main.temp -273.15)*1.80+32;
+
+            $(".1").html("<div class='float-child1'>"+ nextDay+"<br>"+"<h7>"+ response.list[2].weather[0].main+"<br>"+"<div>"+"temp: "+tempFone.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[2].main.humidity+"%" );
 
             var iconone=response.list[2].weather[0].main;
             
         
             //  2 days after weather stats
-            $(".2").html("<div class='float-child2'>"+ twoDays+"<br>"+"<h7>"+ response.list[10].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[10].main.humidity+"%" );
+            var tempFtwo=(response.list[10].main.temp -273.15)*1.80+32;
+
+            $(".2").html("<div class='float-child2'>"+ twoDays+"<br>"+"<h7>"+ response.list[10].weather[0].main+"<br>"+"<div>"+"temp: "+tempFtwo.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[10].main.humidity+"%" );
 
             var icontwo=response.list[10].weather[0].main;
-
+        
 
             //  3 days after weather stats
-            $(".3").html("<div class='float-child3'>"+ threeDays+"<br>"+"<h7>"+ response.list[18].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[18].main.humidity+"%" );
+            var tempFthree=(response.list[18].main.temp -273.15)*1.80+32;
+
+            $(".3").html("<div class='float-child3'>"+ threeDays+"<br>"+"<h7>"+ response.list[18].weather[0].main+"<br>"+"<div>"+"temp: "+tempFthree.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[18].main.humidity+"%" );
 
             var iconthree=response.list[18].weather[0].main;
 
+            
+
             //  4 days after weather stats
-            $(".4").html("<div class='float-child4'>"+ fourDays+"<br>"+"<h7>"+ response.list[26].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[26].main.humidity+"%" );
+            var tempFfour=(response.list[26].main.temp -273.15)*1.80+32;
+
+            $(".4").html("<div class='float-child4'>"+ fourDays+"<br>"+"<h7>"+ response.list[26].weather[0].main+"<br>"+"<div>"+"temp: "+tempFfour.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[26].main.humidity+"%" );
 
             var iconfour=response.list[26].weather[0].main;
 
+            
+
             //  5 days after weather stats
-            $(".5").html("<div class='float-child5'>"+ fiveDays+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempF.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
+            var tempFfive=(response.list[34].main.temp -273.15)*1.80+32;
+
+            $(".5").html("<div class='float-child5'>"+ fiveDays+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempFfive.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
 
             var iconfive=response.list[34].weather[0].main;
+
+            
 
 
 
@@ -201,12 +216,8 @@ $(document).ready(function(){
             a.text(citiesArray[i]);
             $("#cityList").append(a);
 
-            // var buttonCity=document.getElementById("#cityList");
             localStorage.setItem('cities',JSON.stringify(citiesArray));
-            // citiesListNew=localStorage.getItem('cities');
-            // buttonCity.innerHTML=citiesListNew;
-
-        // class="city"
+ 
         }
     }
 
