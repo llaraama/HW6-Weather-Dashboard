@@ -5,7 +5,7 @@ body{
 header{
     background-color: rgb(66, 66, 71);
     color:white;
-    height: 50px;
+    height: 70%;
     text-align: center;
     font-size: 25px;
     font-weight: bold;
@@ -28,7 +28,7 @@ header{
 }
 
 button{
-    width:250px;
+    width:100%;
     text-align: left;
 }
 
@@ -45,6 +45,6 @@ span{
 .float-child1,.float-child2,.float-child3,.float-child4,.float-child5 {
     width: 20%;
     float: left;
-    padding: 20px;
-    border: 2px solid blue;
+    padding: 1%;
+    border: 1px solid blue;
 }  
