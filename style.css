@@ -37,6 +37,14 @@ span{
 }
 
 #uv{
-    width:50px;
+    width:6%;
     color:white;
 }
+
+
+.float-child1,.float-child2,.float-child3,.float-child4,.float-child5 {
+    width: 20%;
+    float: left;
+    padding: 20px;
+    border: 2px solid blue;
+}  
