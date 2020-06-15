@@ -1,5 +1,5 @@
-var welcome=prompt("Welcome, whats your name?");
-var hello=alert("Hello"+" "+welcome+" "+"search a location to view the weather!");
+// var welcome=prompt("Welcome, whats your name?");
+// var hello=alert("Hello"+" "+welcome+" "+"search a location to view the weather!");
 
 var date=moment().format('L');
 var nextDay=moment().add(1, 'days').calendar(); 
@@ -15,6 +15,8 @@ $(document).ready(function(){
     var weatherDays=["1","2","3","4","5"];
 
     var localStorageArray=JSON.parse(localStorage.getItem("cities"));
+
+    
 
     console.log(localStorageArray);
     

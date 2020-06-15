@@ -21,20 +21,7 @@ header{
 
 }
 
-.float-container {
-    border: 20px solid #fff;
-    padding: 20px;
-    float: center;
-   
-}
 
-.float-child1,.float-child2,.float-child3,.float-child4,.float-child5 {
-    width: 20%;
-    float: left;
-    padding: 10px;
-    border: 5px solid rgb(23, 105, 160);
-    height:250px;
-}  
 #select-city{
     color:white;
     background-color:rgb(23, 105, 160);
