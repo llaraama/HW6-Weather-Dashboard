@@ -230,10 +230,14 @@ $(document).ready(function(){
     $("#select-city").on("click",function(event){
         event.preventDefault();
         var inputCity= $("#city-input").val().trim();
+        if(inputCity===""||citiesArray.includes(inputCity)){
+            console.log("empty search")
+        }else{
         searchCity(inputCity);
         citiesArray.push(inputCity);
         renderButtons();
         fiveDay();
+        }
     });
 
 
