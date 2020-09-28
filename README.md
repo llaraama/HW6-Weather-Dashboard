@@ -35,7 +35,7 @@ Clone this repo to your local machine using: https://github.com/llaraama/Weather
 ## Usage
 The following image demonstrates the application functionality:
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+![image](https://user-images.githubusercontent.com/62354759/94465841-83041a00-018e-11eb-954f-6d6603ab9175.png)
 
 ## License
 MIT License
