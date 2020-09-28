@@ -64,7 +64,7 @@ $(document).ready(function(){
             // 1 day after weather stats
             var tempFone=(response.list[2].main.temp -273.15)*1.80+32;
 
-            $(".1").html("<div class='float-child1'>"+ nextDay+"<br>"+"<h7>"+ response.list[2].weather[0].main+"<br>"+"<div>"+"temp: "+tempFone.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[2].main.humidity+"%" );
+            $(".1").html("<div id='day' class='float-child1'>"+ nextDay+"<br>"+"<h7>"+ response.list[2].weather[0].main+"<br>"+"<div>"+"temp: "+tempFone.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[2].main.humidity+"%" );
 
             var iconone=response.list[2].weather[0].main;
             
@@ -72,7 +72,7 @@ $(document).ready(function(){
             //  2 days after weather stats
             var tempFtwo=(response.list[10].main.temp -273.15)*1.80+32;
 
-            $(".2").html("<div class='float-child2'>"+ twoDays+"<br>"+"<h7>"+ response.list[10].weather[0].main+"<br>"+"<div>"+"temp: "+tempFtwo.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[10].main.humidity+"%" );
+            $(".2").html("<div id='day' class='float-child2'>"+ twoDays+"<br>"+"<h7>"+ response.list[10].weather[0].main+"<br>"+"<div>"+"temp: "+tempFtwo.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[10].main.humidity+"%" );
 
             var icontwo=response.list[10].weather[0].main;
         
@@ -80,7 +80,7 @@ $(document).ready(function(){
             //  3 days after weather stats
             var tempFthree=(response.list[18].main.temp -273.15)*1.80+32;
 
-            $(".3").html("<div class='float-child3'>"+ threeDays+"<br>"+"<h7>"+ response.list[18].weather[0].main+"<br>"+"<div>"+"temp: "+tempFthree.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[18].main.humidity+"%" );
+            $(".3").html("<div id='day' class='float-child3'>"+ threeDays+"<br>"+"<h7>"+ response.list[18].weather[0].main+"<br>"+"<div>"+"temp: "+tempFthree.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[18].main.humidity+"%" );
 
             var iconthree=response.list[18].weather[0].main;
 
@@ -89,7 +89,7 @@ $(document).ready(function(){
             //  4 days after weather stats
             var tempFfour=(response.list[26].main.temp -273.15)*1.80+32;
 
-            $(".4").html("<div class='float-child4'>"+ fourDays+"<br>"+"<h7>"+ response.list[26].weather[0].main+"<br>"+"<div>"+"temp: "+tempFfour.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[26].main.humidity+"%" );
+            $(".4").html("<div id='day' class='float-child4'>"+ fourDays+"<br>"+"<h7>"+ response.list[26].weather[0].main+"<br>"+"<div>"+"temp: "+tempFfour.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[26].main.humidity+"%" );
 
             var iconfour=response.list[26].weather[0].main;
 
@@ -98,7 +98,7 @@ $(document).ready(function(){
             //  5 days after weather stats
             var tempFfive=(response.list[34].main.temp -273.15)*1.80+32;
 
-            $(".5").html("<div class='float-child5'>"+ fiveDays+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempFfive.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
+            $(".5").html("<div id='day' class='float-child5'>"+ fiveDays+"<br>"+"<h7>"+ response.list[34].weather[0].main+"<br>"+"<div>"+"temp: "+tempFfive.toFixed(2)+"°F"+"<br>"+"Humidity: "+response.list[34].main.humidity+"%" );
 
             var iconfive=response.list[34].weather[0].main;
 
@@ -176,7 +176,7 @@ $(document).ready(function(){
             method: "GET"
         }).then(function(response){
 
-            $(".uv").html("UV Index: "+"<button id='uv'>"+response[0].value );
+            $(".uv").html("UV Index: "+"<button type='button' id='uv' class='btn btn-danger'>"+response[0].value );
 
             console.log(response)
 

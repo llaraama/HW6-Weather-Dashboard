@@ -3,6 +3,7 @@ body{
     background-position: center;
     /* background-repeat:no-repeat; */
     font-family: 'Comic Neue', cursive;
+    font-size: 100%;
 }
 
 header{
@@ -44,8 +45,8 @@ span{
 }
 
 #uv{
-    width:6%;
     color:white;
+    width: 10%;
 }
 
 
@@ -53,11 +54,12 @@ span{
     width: 20%;
     float: left;
     padding: 1%;
-    border: 1px solid blue;
+    border: 1px solid rgb(219, 219, 236);
 } 
 #main{
-    height:140%;
-    background-color: white;
+    height:100%;
+    background-color:white;
+    width:85%;
    
 }.card{
     background-color:rgb(240, 237, 227) ;
@@ -67,9 +69,12 @@ label{
     font-size: 20px;
 }
 .city-btn{
-    background-color: rgb(137, 216, 230);
+    background-color: rgb(137, 230, 218);
     width: 60%;
 }
 #city-input{
     width: 60%;
+}
+#weather{
+    height: 1000%;
 }
