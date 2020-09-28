@@ -1,5 +1,7 @@
 body{
-    background-color:rgb(239, 239, 240);
+    background-image: url("./Assets/background.png");
+    background-position: center;
+    /* background-repeat:no-repeat; */
 }
 
 header{
@@ -12,7 +14,7 @@ header{
 }
 
 #cityList{
-    font-size: 20px;
+    font-size: 30px;
 }
 
 #weather{
@@ -25,6 +27,7 @@ header{
 #select-city{
     color:white;
     background-color:rgb(23, 105, 160);
+    width: 30%;
 }
 
 button{

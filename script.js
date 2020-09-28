@@ -212,7 +212,7 @@ $(document).ready(function(){
     function renderButtons(){
         $("#cityList").empty();
         for(var i=0;i<citiesArray.length;i++){
-            var a =$("<button>");
+            var a =$("<button class='btn btn-primary'>");
             a.addClass("city-btn");
             a.attr("data-name",citiesArray[i]);
             a.text(citiesArray[i]);
