@@ -1,4 +1,3 @@
-
 var date=moment().format('L');
 var nextDay=moment().add(1, 'days').calendar(); 
 var twoDays=moment().add(2, 'days').calendar(); 
@@ -9,7 +8,7 @@ var fiveDays=moment().add(5, 'days').calendar();
 
 $(document).ready(function(){
  
-    
+
     var citiesArray=[];
 
     var weatherDays=["1","2","3","4","5"];
@@ -30,7 +29,7 @@ $(document).ready(function(){
 
     function searchCity(city){
 
-        var APIKey=process.env.APIKey;
+        var APIKey="3341ac9d2dd138ac14d34cba050bc29f";
 
         var queryURL="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+APIKey
 
