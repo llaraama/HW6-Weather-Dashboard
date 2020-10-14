@@ -1,5 +1,3 @@
-// var welcome=prompt("Welcome, whats your name?");
-// var hello=alert("Hello"+" "+welcome+" "+"search a location to view the weather!");
 
 var date=moment().format('L');
 var nextDay=moment().add(1, 'days').calendar(); 
@@ -7,7 +5,7 @@ var twoDays=moment().add(2, 'days').calendar();
 var threeDays=moment().add(3, 'days').calendar(); 
 var fourDays=moment().add(4, 'days').calendar(); 
 var fiveDays=moment().add(5, 'days').calendar(); 
-("dotenv").config();
+
 
 $(document).ready(function(){
  
