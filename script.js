@@ -7,9 +7,11 @@ var twoDays=moment().add(2, 'days').calendar();
 var threeDays=moment().add(3, 'days').calendar(); 
 var fourDays=moment().add(4, 'days').calendar(); 
 var fiveDays=moment().add(5, 'days').calendar(); 
- 
-$(document).ready(function(){
+("dotenv").config();
 
+$(document).ready(function(){
+ 
+    
     var citiesArray=[];
 
     var weatherDays=["1","2","3","4","5"];
@@ -18,7 +20,8 @@ $(document).ready(function(){
 
     
 
-    console.log(localStorageArray);
+
+
     
     if(localStorageArray){
         citiesArray=localStorageArray;
@@ -29,7 +32,7 @@ $(document).ready(function(){
 
     function searchCity(city){
 
-        var APIKey="3341ac9d2dd138ac14d34cba050bc29f";
+        var APIKey=process.env.APIKey;
 
         var queryURL="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid="+APIKey
 
@@ -178,7 +181,7 @@ $(document).ready(function(){
 
             $(".uv").html("UV Index: "+"<button type='button' id='uv' class='btn btn-danger'>"+response[0].value );
 
-            console.log(response)
+           
 
             var uvIdicator=response[0].value;
 
@@ -231,7 +234,7 @@ $(document).ready(function(){
         event.preventDefault();
         var inputCity= $("#city-input").val().trim();
         if(inputCity===""||citiesArray.includes(inputCity)){
-            console.log("empty search")
+           
         }else{
         searchCity(inputCity);
         citiesArray.push(inputCity);
@@ -244,10 +247,7 @@ $(document).ready(function(){
 
     // try to add an event listener to the button created 
     $("#cityList").on("click",'button',function(event){ 
-        console.log(event.target)
-        console.log("clicky working")
         let searchCityName=$(this).text();
-        console.log(searchCity);
         searchCity(searchCityName);
 
     });
